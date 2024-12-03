@@ -5,9 +5,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Category {
-	@Value("74")
+	@Value("${cat.cid}")
 	private int cid;
-	@Value("Person")
+	@Value("${cat.cname}")
 	private String cname;
 	public Category() {
 		super();
@@ -34,4 +34,6 @@ public class Category {
 	public String toString() {
 		return "Category [cid=" + cid + ", cname=" + cname + "]";
 	}
+	
+	
 }

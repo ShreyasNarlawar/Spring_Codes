@@ -14,15 +14,16 @@ public class Product {
 	private int qty;
 	@Autowired
 	Category c;
+	
 	public Product() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public Product(int pid, String pname, int qty) {
+	public Product(int pid, String pname, int qty, Category c) {
 		super();
 		this.pid = pid;
 		this.pname = pname;
 		this.qty = qty;
+		this.c = c;
 	}
 	public int getPid() {
 		return pid;
@@ -52,5 +53,6 @@ public class Product {
 	public String toString() {
 		return "Product [pid=" + pid + ", pname=" + pname + ", qty=" + qty + ", c=" + c + "]";
 	}
+	
 	
 }
