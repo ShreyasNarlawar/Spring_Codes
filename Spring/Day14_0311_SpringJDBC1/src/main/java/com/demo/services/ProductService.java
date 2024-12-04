@@ -1,5 +1,9 @@
 package com.demo.services;
 
+import java.util.List;
+
+import com.demo.beans.Product;
+
 public interface ProductService {
 
 	void addProduct();
@@ -8,6 +12,10 @@ public interface ProductService {
 
 	boolean updateById(int id);
 
-	boolean displayAll();
+	List displayAll();
+
+	Product searchById(int id);
+
+	List<Product> displaybyPrice();
 
 }

@@ -2,22 +2,27 @@ package com.demo.test;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.demo.beans.Product;
+import com.demo.services.ProductService;
+
+import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.context.ApplicationContext;
-import com.demo.services.*;
+
 public class TestSpringCRUD {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("springconfig.xml");
 		Scanner sc = new Scanner(System.in);
-		ProductService pserv = new ProductServiceImpl();
+		ProductService pserv = (ProductService)ctx.getBean("productServiceImpl");
 		int ch = 0;
 		do {
-			System.out.println("1. add new product\n 2. delete product\n 3. modify product\n");
-			System.out.println("4. display by id\n 5. display all\n 6. display by price\n7.exit\nchoice: ");
+			System.out.println("\n\t\tMenu\n\n1.add new product\n2.delete product\n3.modify product");
+			System.out.println("4.display by id\n5.display all\n6.display by price\n7.exit\n\tchoice: ");
 			ch = sc.nextInt();
+			
 			switch(ch) {
 			case 1:
 					pserv.addProduct();
@@ -41,7 +46,29 @@ public class TestSpringCRUD {
 						System.out.println("not found");
 					break;
 			case 4:
-					status = pserv.displayAll();
+					System.out.println("Enter Id for Search");
+					id = sc.nextInt();
+					Product p = pserv.searchById(id);
+					System.out.println(p);
+					break;
+				
+			case 5:
+					List<Product> plist = pserv.displayAll();
+					plist.forEach(System.out::println);
+					break;
+				
+			case 6:
+					List<Product> plist2 = pserv.displaybyPrice();
+					plist2.forEach(System.out::println);
+					break;
+				
+			case 7:
+					System.out.println("THank you..");
+					sc.close();
+					((ClassPathXmlApplicationContext)ctx).close();
+					break;
+			default :
+					System.out.println("Invalid Input..");
 					break;
 			}
 		}while(ch != 7);

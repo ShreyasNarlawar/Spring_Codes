@@ -1,5 +1,7 @@
 package com.demo.dao;
 
+import java.util.List;
+
 import com.demo.beans.Product;
 
 public interface ProductDao {
@@ -8,8 +10,12 @@ public interface ProductDao {
 
 	boolean removeById(int id);
 
-	boolean modifyById(int id);
+	boolean modifyById(Product p);
 
-	boolean getAll();
+	List getAll();
+
+	Product searchProdById(int id);
+
+	List<Product> showByPrice();
 
 }
