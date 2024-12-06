@@ -19,4 +19,16 @@ ProductDao pdao;
 		return pdao.getProds();
 	}
 
+	@Override
+	public boolean addNewProduct(Product p) {
+		// TODO Auto-generated method stub
+		return pdao.addProds(p);
+	}
+
+	@Override
+	public Product getById(int pid) {
+		// TODO Auto-generated method stub
+		return pdao.getById(pid);
+	}
+
 }

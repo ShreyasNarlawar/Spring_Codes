@@ -8,4 +8,6 @@ public interface ProductDao {
 
 	List<Product> getProds();
 
+	boolean addProds(Product p);
+
 }

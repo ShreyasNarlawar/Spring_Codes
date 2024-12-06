@@ -29,6 +29,15 @@ public List<Product> getProds() {
 		p.setCid(rs.getInt(6));
 		return p;
 	});
-}	
+}
+
+	@Override
+	public boolean addProds(Product p) {
+		// TODO Auto-generated method stub
+		String q = "insert into product values (?,?,?,?,?,?)";
+		int n = jdbctemp.update(q,new Object[] {p.getPid(),p.getPname(),p.getQty(),p.getPrice(),p.getDate(),p.getCid()});
+		 return n > 0;
+	
+	}	
 
 }
