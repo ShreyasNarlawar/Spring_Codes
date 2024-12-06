@@ -7,7 +7,10 @@
 <title>springMVC</title>
 </head>
 <body>
-    <a href="/Day15_0512_SpringMVC/hello">Hello Page </a><br>
+    <a href="/Day15_0512_SpringMVC/hello">Hello Page </a>
+    <br>
     <a href="/Day15_0512_SpringMVC/security/login">Login</a>
+    <br>
+    <a href="/Day15_0512_SpringMVC/security/login">Show Products</a>
 </body>
 </html>

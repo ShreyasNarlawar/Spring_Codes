@@ -8,8 +8,8 @@
 </head>
 <body>
 <form action="validate" method="post">
-    username <input type="text" name="uname" id="unm"><br>
-    password <input type="password" name="passwd" id="pass"><br>
+    username <input type="text" name="uname" id="uname"><br>
+    password <input type="password" name="passwd" id="passwd"><br>
     <button type="submit" name="btn" id="login">Login</button>
 </form>
 

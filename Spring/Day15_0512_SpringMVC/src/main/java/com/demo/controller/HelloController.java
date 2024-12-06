@@ -9,6 +9,7 @@ public class HelloController {
 	//@RequestMapping("/hello")
 			@GetMapping("/")
 			public String welcomefile() {
+				System.out.println("in welcome file");
 				return "index";
 			}
 			
