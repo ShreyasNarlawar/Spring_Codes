@@ -38,6 +38,38 @@ public List<Product> getProds() {
 		int n = jdbctemp.update(q,new Object[] {p.getPid(),p.getPname(),p.getQty(),p.getPrice(),p.getDate(),p.getCid()});
 		 return n > 0;
 	
-	}	
+	}
+	@Override
+	public boolean updateProduct(Product p) {
+		int n = jdbctemp.update("update product set pname=?,qty=?,price=?,date=?,cid=? where pid=?",
+				new Object[] {p.getPname(),p.getQty(),p.getPrice(),p.getDate(),p.getCid(),p.getPid()});
+				return n>0;
+	}
 
+	@Override
+	public boolean removeById(int pid) {
+		int n= jdbctemp.update("delete from product where pid=?",new Object[] {pid});
+		return n>0;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public Product getById(int pid) {
+		try {
+			String q = "select * from product where pid= ?";
+			return jdbctemp.queryForObject(q,new Object[] {pid},(rs,rownum)->{
+				Product p = new Product();
+				p.setPid(rs.getInt(1));
+				p.setPname(rs.getString(2));
+				p.setQty(rs.getInt(3));
+				p.setPrice(rs.getDouble(4));
+				p.setDate(rs.getDate(5).toLocalDate());
+				p.setCid(rs.getInt(6));
+				return p;
+			});
+		}catch(Exception e) {
+			System.out.println("not found");
+			return null;
+		}
+	}	
 }

@@ -1,5 +1,7 @@
 package com.demo.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.demo.beans.Product;
@@ -31,17 +34,34 @@ public class ProductController {
 		m.addAttribute("u1", new Product());
 		return "insertproduct";
 	}
-	@PostMapping("/insertproduct")
+	@PostMapping("/insertProduct")
 	//public ModelAndView inserProduct(@RequestParam int pid,@RequestParam String  pname,@RequestParam int qty,@RequestParam double price,@RequestParam String ldt,@RequestParam int cid) {
 	public ModelAndView insertProduct(@ModelAttribute Product p) {
 		boolean status = pserv.addNewProduct(p);
-		return new ModelAndView("redirect:/product/getproduct");
+		return new ModelAndView("redirect:/product/getproducts");
 	}
-	@GetMapping("/editproduct/${pid}")
+	@GetMapping("/editproduct/{pid}")
 	public ModelAndView editProduct(@PathVariable int pid) {
 		Product p = pserv.getById(pid);
-		return null;
+		if(p!=null)
+			   return new ModelAndView("editproduct","prod",p);
+			else {
+				return new ModelAndView("redirect:/product/getproducts");
+			}
+		}
+		@PostMapping("/updateProduct")
 		
-	}
+		public ModelAndView updateProduct(@RequestParam int pid,@RequestParam String  pname,@RequestParam int qty,@RequestParam double price,@RequestParam String date,@RequestParam int cid) {
+			LocalDate ldate=LocalDate.parse(date,DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+			Product p=new Product(pid,pname,qty,price,ldate,cid);
+			boolean status=pserv.updateProduct(p);
+			return new ModelAndView("redirect:/product/getproducts");
+		}
+		
+		@GetMapping("deleteproduct/{pid}")
+		public ModelAndView deleteProduct(@PathVariable int pid) {
+			boolean status=pserv.deleteById(pid);
+			return new ModelAndView("redirect:/product/getproducts");
+		}
 
-}
+	}

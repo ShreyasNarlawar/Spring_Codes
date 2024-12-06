@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="Day15_0512_SpringMVC-0.0.1-SNAPSHOT">
+    <wb-module deploy-name="Day16_0512_SpringWebService-0.0.1-SNAPSHOT">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <property name="context-root" value="Day15_0512_SpringMVC"/>
-        <property name="java-output-path" value="/Day15_0512_SpringMVC/target/classes"/>
+        <property name="context-root" value="Day16_0512_SpringWebService"/>
+        <property name="java-output-path" value="/Day16_0512_SpringWebService/target/classes"/>
     </wb-module>
 </project-modules>

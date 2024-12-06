@@ -26,6 +26,18 @@ ProductDao pdao;
 	}
 
 	@Override
+	public boolean updateProduct(Product p) {
+		// TODO Auto-generated method stub
+		return pdao.updateProduct(p);
+	}
+
+	@Override
+	public boolean deleteById(int pid) {
+		// TODO Auto-generated method stub
+		return pdao.removeById(pid);
+	}
+
+	@Override
 	public Product getById(int pid) {
 		// TODO Auto-generated method stub
 		return pdao.getById(pid);
