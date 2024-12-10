@@ -1,13 +1,13 @@
-package com.demo.SpringBootCRUD_MVC;
+package com.demo.SpringFormValidation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Day170712SpringBootCrudMvcApplication {
+public class SpringFormValidationApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Day170712SpringBootCrudMvcApplication.class, args);
+		SpringApplication.run(SpringFormValidationApplication.class, args);
 	}
 
 }
