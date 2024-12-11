@@ -14,20 +14,20 @@ public class Product {
 	private String pname;
 	private int qty;
 	private double price;
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private LocalDate expdate;
+	@DateTimeFormat(pattern="dd-MM-yyyy")
+	private LocalDate date;
 	private int cid;
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Product(int pid, String pname, int qty, double price, LocalDate expdate, int cid) {
+	public Product(int pid, String pname, int qty, double price, LocalDate date, int cid) {
 		super();
 		this.pid = pid;
 		this.pname = pname;
 		this.qty = qty;
 		this.price = price;
-		this.expdate = expdate;
+		this.date = date;
 		this.cid = cid;
 	}
 	public int getPid() {
@@ -54,11 +54,11 @@ public class Product {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public LocalDate getExpdate() {
-		return expdate;
+	public LocalDate getdate() {
+		return date;
 	}
-	public void setExpdate(LocalDate expdate) {
-		this.expdate = expdate;
+	public void setExpdate(LocalDate date) {
+		this.date =date;
 	}
 	public int getCid() {
 		return cid;
@@ -68,7 +68,7 @@ public class Product {
 	}
 	@Override
 	public String toString() {
-		return "Product [pid=" + pid + ", pname=" + pname + ", qty=" + qty + ", price=" + price + ", expdate=" + expdate
+		return "Product [pid=" + pid + ", pname=" + pname + ", qty=" + qty + ", price=" + price + ", date=" + date
 				+ ", cid=" + cid + "]";
 	}
 	

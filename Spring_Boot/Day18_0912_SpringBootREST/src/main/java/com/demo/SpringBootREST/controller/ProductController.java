@@ -51,7 +51,7 @@ public class ProductController {
 		if(status)
 			return ResponseEntity.ok("Data added successfully");
 		else
-			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
 	}
 	
 	@PutMapping("/products/{pid}")

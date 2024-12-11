@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.demo.SpringBootREST.beans.Product;
-import com.demo.SpringBootREST.beans.mapper.ProductDTOMapper;
 import com.demo.SpringBootREST.dao.ProductDao;
 import com.demo.SpringBootREST.dto.ProductDto;
+import com.demo.SpringBootREST.mapper.ProductDTOMapper;
 
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -52,9 +52,9 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public boolean addNewProduct(ProductDto p) {
+	public boolean addNewProduct(ProductDto pdto) {
 		// TODO Auto-generated method stub
-		Product p2 = ProductDTOMapper.mapToProduct(p);
+		Product p2 = ProductDTOMapper.mapToProduct(pdto);
 		Product p1 = pdao.save(p2);
 		
 		return p1 != null;

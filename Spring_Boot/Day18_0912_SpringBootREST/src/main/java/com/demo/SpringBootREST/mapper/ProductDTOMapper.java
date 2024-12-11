@@ -1,4 +1,4 @@
-package com.demo.SpringBootREST.beans.mapper;
+package com.demo.SpringBootREST.mapper;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -9,9 +9,9 @@ import com.demo.SpringBootREST.dto.ProductDto;
 public class ProductDTOMapper {
 	
 	public static ProductDto mapToProductDto(Product p) {
-		if(p.getExpdate() != null)
+		if(p.getdate() != null)
 			return new ProductDto(p.getPid(),p.getPname(),p.getQty(),p.getPrice(),
-					p.getExpdate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),p.getCid());
+					p.getdate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),p.getCid());
 		else
 			return new ProductDto(p.getPid(),p.getPname(),p.getQty(),p.getPrice(),null,p.getCid());
 	}
